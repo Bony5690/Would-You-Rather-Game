@@ -17,12 +17,12 @@ const NavBar = (props) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/form' activeClassName='active'>
+          <NavLink to='/newquestion' activeClassName='active'>
             New Question
           </NavLink>
         </li>
         <li>
-          <NavLink to='/form' activeClassName='active'>
+          <NavLink to='/leaderboard' activeClassName='active'>
           Leader Board
           </NavLink>
         </li>
@@ -38,7 +38,7 @@ const NavBar = (props) => {
         </li>
 
         <li>
-          <NavLink to='/form' activeClassName='active'>
+          <NavLink to='/home' activeClassName='active'>
            Logout
           </NavLink>
         </li>

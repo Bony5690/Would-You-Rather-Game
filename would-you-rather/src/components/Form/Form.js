@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,  } from 'react';
 import  './styles.css'
 
 
@@ -10,9 +10,23 @@ class Form extends Component {
       secondQuest: 'Enter option two text here'
     }
   }
+  handleChange = (e) => {
+  this.setState({firstQuest: e.target.value})
+}
 
+
+handleSubmit = (e) => {
+  e.preventDefault()
+
+  
+}
 
   render() {
+
+    const inputStyle = {
+    padding: 5,
+    color: '#D3D3D3'
+    }
     const { firstQuest, secondQuest} = this.state;
     return (
       <div 
@@ -23,12 +37,17 @@ class Form extends Component {
         <div style={{padding: 10}}>
           Would you rather...
         </div>
-          <input value={firstQuest} />
+          <input 
+            onChange={this.handleChange}
+         style={inputStyle}
+          value={firstQuest} />
           <div style={{padding: 10}}>
             or
           </div>
 
-          <input value={secondQuest} />
+          <input 
+              style={inputStyle}
+          value={secondQuest} />
           <button
           style={{backgroundColor: '#3CB371', color: '#ffffff', borderColor: '#3CB371'}}
             className='btn'

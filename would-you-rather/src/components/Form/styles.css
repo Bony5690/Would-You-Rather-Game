@@ -11,6 +11,12 @@
     margin-top: 20
 }
 
+.inputstyle {
+padding: 5;
+color: '#D3D3D3',
+
+}
+
   .wrapper {
     width: 100%;
     max-width: 590px;
@@ -19,5 +25,6 @@
     border: 1px solid #dad7d7;
     border-radius: 3px;
     cursor: pointer;
+    box-shadow: 5px 5px 0.5px #888888;
 
   }
