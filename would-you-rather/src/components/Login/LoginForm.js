@@ -25,7 +25,7 @@ class FlavorForm extends Component {
 <div  
 
 className='wrapper2'>
-<p style={{textAlign: 'center', fontSize: 20, borderTop: 5, borderColor: '#000000', width: '100%', color: '#16c600', fontWeight: '700' }}>Welcome to the would you rather App!</p>
+<p style={{textAlign: 'center', fontSize: 20, borderColor: '#000000', width: '100%',  fontWeight: '700' }}>Welcome to the would you rather App!</p>
 </div>
          
           
@@ -34,7 +34,7 @@ className='wrapper2'>
         className='new-question'
         onSubmit={this.handleSubmit}>
           <label>
-       <p style={{textAlign: 'center', color:  '#f4d0b9', fontSize: 30}}>Sign In</p>
+       <p style={{textAlign: 'center',  fontSize: 30}}>Sign In</p>
             <select 
             style={{width: '100%'}}
             value={this.state.value} onChange={this.handleChange}>
