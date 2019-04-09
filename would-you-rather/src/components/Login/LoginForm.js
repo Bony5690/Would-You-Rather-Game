@@ -44,7 +44,7 @@ className='wrapper2'>
             </select>
           </label>
           <input 
-          style={{backgroundColor: '#2d5f2e', color: '#ffffff', borderColor: '#b3d3ce'}}
+          style={{backgroundColor: '#3CB371', color: '#ffffff', borderColor: '#b3d3ce'}}
           type="submit" value="Submit" />
         </form>
         </div>
