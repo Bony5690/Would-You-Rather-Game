@@ -21,6 +21,7 @@ class Tabs extends Component {
   }
 
   render() {
+    const {onClick} = this.props
     const {
       onClickTabItem,
       props: {
@@ -39,6 +40,7 @@ class Tabs extends Component {
 
             return (
               <Tab
+              onClick={onClick}
                 activeTab={activeTab}
                 key={label}
                 label={label}
