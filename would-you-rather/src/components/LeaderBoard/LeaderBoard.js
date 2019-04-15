@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tabs from '../Tab/Tabs'
+import { Redirect, withRouter } from "react-router-dom";
 import '../Tab/styles.css'
 import {connect} from 'react-redux';
 import Questions from '../Questions';
@@ -24,6 +25,9 @@ class LeaderBoard extends Component {
 
 
       console.log('leaderboard',  activeUsersAnswers)
+      if (!authedUser[0]) {
+        return <Redirect to="/" />;
+      }
         return (
             <div>
             <h1>LeaderBoard</h1>

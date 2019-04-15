@@ -1,4 +1,4 @@
-import {RECEIVE_QUESTIONS} from '../actions/questions'
+import {RECEIVE_QUESTIONS} from '../actions/types'
 
 
 export default function users ( state = {}, action) {
