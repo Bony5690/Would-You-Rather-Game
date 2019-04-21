@@ -18,6 +18,11 @@ a {
   color: #252525;
 }
 
+.border {
+  border-width: 1;
+  border-color: '#000000';
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;

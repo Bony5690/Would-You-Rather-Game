@@ -30,6 +30,7 @@ class Tab extends Component {
 
     return (
       <li
+
         className={className}
         onClick={onClick}
       >

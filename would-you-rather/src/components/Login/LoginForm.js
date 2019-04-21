@@ -29,9 +29,9 @@ class FlavorForm extends Component {
   
 
   render() {
-    const { users, authedUser } = this.props;
+    const {  authedUser } = this.props;
     if (authedUser[0]) {
-      return <Redirect to="/LeaderBoard" />;
+      return <Redirect to="/" />;
     }
 
     console.log(authedUser)
@@ -45,7 +45,7 @@ class FlavorForm extends Component {
         </div>
 
         <form
-          onClick={() => this.handleSubmit()}
+      
           className='new-question'
           >
           <label>
@@ -55,14 +55,14 @@ class FlavorForm extends Component {
               value={this.state.user} 
               onChange={this.handleChange}
                    >
-                     <option value="sarahedo">Login</option>
+               <option value="Login">Login</option>
               <option value="sarahedo">sarahedo</option>
               <option value="tylermcginnis">tylermcginnis</option>
               <option value="johndoe">johndoe</option>
             </select>
           </label>
           <input
-        
+            onClick={() => this.handleSubmit()}
             style={{ backgroundColor: '#3CB371', color: '#ffffff', borderColor: '#b3d3ce' }}
             type="submit" value="Submit" />
         </form>

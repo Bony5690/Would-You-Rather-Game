@@ -1,41 +1,40 @@
 import React, { Component } from 'react';
 import { Route, Switch } from "react-router";
 import { ConnectedRouter } from "connected-react-router";
-import { BrowserRouter as Router } from 'react-router-dom'
 import Form from './components/NewQuestion/Form'
 import NavBar from './components/NavBar'
-import FlavorForm from './components/Login/LoginForm'
+import Poll from './components/Poll/Poll';
+import Error from './components/Error/Error';
 import LoginForm from './components/Login/LoginForm'
-import Question from './components/Question/Question';
 import './App.css';
-import LeaderBoard from './components/LeaderBoard/LeaderBoard';
-import {connect} from 'react-redux';
-import {handleInitialData} from './actions/shared';
+import DashBoard from './components/DashBoard/DashBoard';
+import { connect } from 'react-redux';
+import { handleInitialData } from './actions/shared';
 import { history } from "./store";
 
 class App extends Component {
 
-componentDidMount(){
-  this.props.dispatch(handleInitialData())
-}
+  componentDidMount() {
+    this.props.dispatch(handleInitialData())
+  }
 
   render() {
     return (
-      <Router>
-        <div className='container'>
-       <NavBar/>
-       <ConnectedRouter history={history}>
-<Switch>
-        <Route path='/LeaderBoard' exact  component={LeaderBoard} />
-        <Route path='/' exact  component={LoginForm} />
-        {/* <Route path='/newquestion'  component={Form} /> */}
-        <Route path='/newquestion'  component={Question} />
-        {/* <Route path='/leaderboard'  component={LeaderBoard} /> */}
-        </Switch>
-        </ConnectedRouter>
+      <ConnectedRouter history={history}>
+        <div 
+        >
+          <NavBar />
+          <Switch>
+            <Route path='/' exact component={DashBoard} />
+            <Route path='/login' component={LoginForm} />
+            <Route path="/poll/:id" component={Poll} />
+            <Route path='/add' component={Form} />
+            <Route path='/404' component={Error} />
+          </Switch>
         </div>
-      </Router>
-     
+      </ConnectedRouter>
+
+
     );
   }
 }

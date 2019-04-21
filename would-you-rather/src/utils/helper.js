@@ -14,6 +14,7 @@ export function formatDate(timestamp) {
       name,
       id,
       timestamp,
+      votes,
       optionOne,
       optionTwo,
       avatar: avatarURL

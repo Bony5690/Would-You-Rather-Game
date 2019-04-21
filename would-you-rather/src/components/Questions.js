@@ -1,30 +1,42 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-import {formatQuestion} from '../utils/helper';
+import {Link, withRouter} from 'react-router-dom';
+import { connect } from 'react-redux';
+import './styles.css'
+import { formatQuestion, formatDate } from '../utils/helper';
 
 class Questions extends Component {
     render() {
-            const {question, user, authedUser} = this.props
+        const { question, user, authedUser } = this.props
 
-        const { timestamp, optionOne, optionTwo, id,  } = question;
-        const {name, avatarURL} = user
+        const { timestamp, optionOne, optionTwo, id } = question;
+        const { name, avatarURL } = user
         console.log('questions', this.props)
 
         return (
-            <div className='tweet'>
-               <img src={avatarURL} 
-                       height="42" width="42"
-               alt={`Avatar of ${name}`} className="avatar" />
-              <p style={{backgroundColor: 'light-gray'}}>{name} asks</p>
-              <p>{optionOne.text}</p>
-              <p>{optionTwo.text}</p>
-              <p>{authedUser}</p>
+            <Link to={`/poll/${id}`} style={{ textDecoration: "none" }}>
+            <div 
+            className='border'
+            style={{display: 'flex', padding: 20}}>
+                <div>
+                    <img src={avatarURL}
+                    style={{borderRadius: 21}}
+                        height="42" width="42"
+                        alt={`Avatar of ${name}`}  />
+                    <div style={{marginTop: 20}}>{formatDate(timestamp)}</div>
+                </div>
+                <div style={{ margin: 20}}> 
+                    <p style={{ backgroundColor: 'light-gray', fontSize: 25, marginTop: -15 }}>{name} asks</p>
+                    <p>{optionOne.text}</p>
+                    <p>{optionTwo.text}</p>
+                    <p>{authedUser}</p>
+                </div>
             </div>
+            </Link>
         );
     }
 }
 
-function mapStateToProps({authedUser, users, questions}, {id}) {
+function mapStateToProps({ authedUser, users, questions }, { id }) {
     const question = questions[id]
     const user = users && users[question.author];
     return {
@@ -34,4 +46,4 @@ function mapStateToProps({authedUser, users, questions}, {id}) {
     }
 }
 
-export default connect(mapStateToProps)(Questions);
+export default withRouter(connect(mapStateToProps)(Questions));

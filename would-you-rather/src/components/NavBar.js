@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles.css'
 import { connect } from "react-redux";
-import { withRouter, NavLink, Redirect, } from "react-router-dom";
+import { withRouter, NavLink } from "react-router-dom";
 import { handleRemoveAuthedUser } from "../actions/authedUser";;
 
 
@@ -24,15 +24,15 @@ class NavBar extends Component {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/newquestion' activeClassName='active'>
+          <NavLink to='/add'>
             New Question
           </NavLink>
         </li>
-        <li>
-          <NavLink to='/leaderboard' activeClassName='active'>
+        {/* <li>
+          <NavLink to='/leaderboar' activeClassName='active'>
           Leader Board
           </NavLink>
-        </li>
+        </li> */}
         <li>
          {}
         </li>

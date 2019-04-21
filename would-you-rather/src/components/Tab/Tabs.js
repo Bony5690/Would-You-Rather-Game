@@ -21,7 +21,6 @@ class Tabs extends Component {
   }
 
   render() {
-    const {onClick} = this.props
     const {
       onClickTabItem,
       props: {
@@ -34,13 +33,14 @@ class Tabs extends Component {
 
     return (
       <div className="tabs">
-        <ol className="tab-list">
+        <ol 
+           style={this.props.style}
+        className="tab-list">
           {children.map((child) => {
             const { label } = child.props;
 
             return (
               <Tab
-              onClick={onClick}
                 activeTab={activeTab}
                 key={label}
                 label={label}
@@ -49,7 +49,7 @@ class Tabs extends Component {
             );
           })}
         </ol>
-        <div className="tab-content">
+        <div>
           {children.map((child) => {
             if (child.props.label !== activeTab) return undefined;
             return child.props.children;
