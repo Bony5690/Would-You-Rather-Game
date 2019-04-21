@@ -22,28 +22,33 @@ class Poll extends Component {
 
         const { questions, users, authedUser, id } = this.props
 
-    //     const selectedQuestion = questions.optionOne.votes.includes(authedUser)
-    //   ? "optionOne"
-    //   : questions.optionTwo.votes.includes(authedUser)
-    //   ? "optionTwo"
-    //   : false;
-
-    // const newQuestion = questions.optionOne.votes.includes(authedUser)
-    //   ? true
-    //   : questions.optionTwo.votes.includes(authedUser)
-    //   ? true
-    //   : false;
-
-    // const votes =
-    //   questions.optionOne.votes.length + questions.optionTwo.votes.length;
+       
 
         if (questions[id] === undefined) {
             return <Redirect to="/404" />;
           }
-      
+          const question = questions && questions[id];
+          const user = users && users[question.author];
 
-        const { timestamp } = questions;
-        const { name, avatarURL } = users
+          const { timestamp, optionOne, optionTwo } = question;
+          const { name, avatarURL } = user;
+
+          const selectedQuestion = question.optionOne.votes.includes(authedUser)
+          ? "optionOne"
+          : question.optionTwo.votes.includes(authedUser)
+          ? "optionTwo"
+          : false;
+    
+        const newQuestion = question.optionOne.votes.includes(authedUser)
+          ? true
+          : question.optionTwo.votes.includes(authedUser)
+          ? true
+          : false;
+
+
+      const votes =
+      question.optionOne.votes.length + question.optionTwo.votes.length;
+       
         return (
             <div
                 className='border'
@@ -53,8 +58,12 @@ class Poll extends Component {
                         style={{ borderRadius: 21 }}
                         height="42" width="42"
                         alt={`Avatar of ${name}`} />
+                        <p>{name}</p>
                     <div style={{ marginTop: 20 }}>{formatDate(timestamp)}</div>
-                    <p>{authedUser}</p>
+                </div>
+                <div>
+                    <p>{optionOne.text}</p>
+                    <p>{optionTwo.text}</p>
                 </div>
             </div>
         );
