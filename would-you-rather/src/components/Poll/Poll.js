@@ -6,14 +6,26 @@ import { Redirect, withRouter } from "react-router-dom";
 import { formatDate } from '../../utils/helper';
 
 class Poll extends Component {
-
+// constructor(props){
+//     super(props)
+//     this.state = {
+//         selectedQuestion: 'optionOne'
+//     }
+// }
 
     handleClick = (question, answer) => {
-        const { dispatch } = this.props;
+        const { dispatch, } = this.props;
         console.log("Question: ", question);
-        console.log("Question: ", answer);
-        dispatch(handleSaveQuestionAnswer(question, answer));
+        // console.log("Question: ", answer);
+        dispatch(handleSaveQuestionAnswer( question, answer ));
     };
+
+
+    handleOptionChange = (e) => {
+        this.setState({
+          selectedQuestion: e.target.value
+        });
+      };
 
 
     render() {
@@ -21,8 +33,9 @@ class Poll extends Component {
        console.log('Polling', this.props)
 
         const { questions, users, authedUser, id } = this.props
-
-       
+        if (!authedUser[0]) {
+            return <Redirect to="/login" />;
+          }
 
         if (questions[id] === undefined) {
             return <Redirect to="/404" />;
@@ -33,7 +46,7 @@ class Poll extends Component {
           const { timestamp, optionOne, optionTwo } = question;
           const { name, avatarURL } = user;
 
-          const selectedQuestion = question.optionOne.votes.includes(authedUser)
+       const  selectedQuestion = question.optionOne.votes.includes(authedUser)
           ? "optionOne"
           : question.optionTwo.votes.includes(authedUser)
           ? "optionTwo"
@@ -48,7 +61,7 @@ class Poll extends Component {
 
       const votes =
       question.optionOne.votes.length + question.optionTwo.votes.length;
-       
+       console.log(selectedQuestion)
         return (
             <div
                 className='border'
@@ -62,8 +75,34 @@ class Poll extends Component {
                     <div style={{ marginTop: 20 }}>{formatDate(timestamp)}</div>
                 </div>
                 <div>
-                    <p>{optionOne.text}</p>
-                    <p>{optionTwo.text}</p>
+                    <label>
+                        <button 
+                        onClick={() => this.handleClick(question, 'optionOne')}
+                        style={{backgroundColor: selectedQuestion !== 'optionOne' ? 'gray' : 'green', color: 'white', fontWeight: '700'}}>{ optionOne.text}</button>
+                    {/* <button
+              type="radio"
+              name="react-tips"
+              value="optionOne"
+              onChange={this.handleOptionChange}
+              checked={selectedQuestion}
+            /> */}
+            {/* {optionOne.text} */}
+                    </label>
+
+                    <label>
+                    <button 
+                        onClick={() => this.handleClick(question, 'optionTwo')}
+                        style={{backgroundColor: selectedQuestion !== 'optionTwo' ? 'gray' : 'green', color: 'white', fontWeight: '700'}}>{ optionTwo.text}</button>
+                    {/* <input
+              type="radio"
+              name="react-tips"
+              onChange={this.handleOptionChange}
+              value="optionTwo"
+              checked={selectedQuestion }
+            /> */}
+            {/* {optionTwo.text} */}
+                    </label>
+                    {/* <button type="submit">Submit</button> */}
                 </div>
             </div>
         );

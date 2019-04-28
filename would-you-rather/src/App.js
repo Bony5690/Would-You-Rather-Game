@@ -11,6 +11,7 @@ import DashBoard from './components/DashBoard/DashBoard';
 import { connect } from 'react-redux';
 import { handleInitialData } from './actions/shared';
 import { history } from "./store";
+import LeaderBoard from './components/LeaderBoard/LeaderBoard'
 
 class App extends Component {
 
@@ -21,11 +22,13 @@ class App extends Component {
   render() {
     return (
       <ConnectedRouter history={history}>
-        <div 
-        >
+      
           <NavBar />
+          <div 
+        >
           <Switch>
             <Route path='/' exact component={DashBoard} />
+            <Route path='/leaderboard' exact component={LeaderBoard} />
             <Route path='/login' component={LoginForm} />
             <Route path="/poll/:id" component={Poll} />
             <Route path='/add' component={Form} />

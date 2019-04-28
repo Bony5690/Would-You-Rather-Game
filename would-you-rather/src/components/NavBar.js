@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './styles.css'
 import { connect } from "react-redux";
 import { withRouter, NavLink } from "react-router-dom";
-import { handleRemoveAuthedUser } from "../actions/authedUser";;
+import { handleRemoveAuthedUser } from "../actions/authedUser";
 
 
 class NavBar extends Component {
@@ -12,51 +12,54 @@ class NavBar extends Component {
     dispatch(handleRemoveAuthedUser());
   }
   render() {
-    const {  authedUser } = this.props;
-    
-    return authedUser[0] ?(
-      <nav 
+    const { authedUser } = this.props;
+    // if (!authedUser[0]) {
+    //   return <Redirect to="/login" />;
+    // }
+
+    return authedUser[0] ? (
+      <nav
         className=' nav'>
-      <ul >
-        <li>
-          <NavLink to='/' exact activeClassName='active'>
-            Home
+        <ul >
+          <li>
+            <NavLink to='/' exact activeClassName='active'>
+              Home
           </NavLink>
-        </li>
-        <li>
-          <NavLink to='/add'>
-            New Question
+          </li>
+          <li>
+            <NavLink to='/add'>
+              New Question
           </NavLink>
-        </li>
-        {/* <li>
-          <NavLink to='/leaderboar' activeClassName='active'>
-          Leader Board
+          </li>
+          <li>
+          <NavLink to='/leaderboard'>
+             Leaderboard
           </NavLink>
-        </li> */}
-        <li>
-         {}
-        </li>
-        <li>
-        <img 
-        alt='user avatar'
-        style={{borderRadius: 30}}
-        height="42" width="42"
-        src="https://www.w3schools.com/w3images/avatar5.png"/>
-        </li>
-        {authedUser[0] ? authedUser : null}
-        <li>
-          <button
-           onClick={() => this.handleClick()}
-          >Logout</button>
-          {/* <NavLink to='/Login' activeClassName='active'>
+          </li>
+          <li>
+            <img
+              alt='user avatar'
+              style={{ borderRadius: 30 }}
+              height="42" width="42"
+              src="https://www.w3schools.com/w3images/avatar5.png" />
+          </li>
+          {authedUser[0] ? authedUser : null}
+          <li>
+  
+              
+           <button
+              onClick={() => this.handleClick()}
+            >Logout</button> 
+      
+            {/* <NavLink to='/Login' activeClassName='active'>
            Logout
           </NavLink> */}
-        </li>
-      </ul>
-    </nav>
+          </li>
+        </ul>
+      </nav>
     )
-    :
-    null
+      :
+      null
   }
 }
 
@@ -109,7 +112,7 @@ class NavBar extends Component {
 //     </nav>
 
 //     )
-  
+
 // }
 
 
