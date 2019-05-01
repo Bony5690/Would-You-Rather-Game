@@ -12,50 +12,45 @@ class FlavorForm extends Component {
   };
 
   // handleChange = (event) => {
-    
+
   // }
 
   handleSubmit = () => {
 
-    const {dispatch} = this.props
-    const {user} = this.state;
+    const { dispatch } = this.props
+    const { user } = this.state;
     dispatch(handleAuthedUser(user));
-  
+
   }
 
-  handleChange= (event) => {
-    this.setState({user: event.target.value});
+  handleChange = (event) => {
+    this.setState({ user: event.target.value });
   }
-  
+
 
   render() {
-    const {  authedUser } = this.props;
+    const { authedUser } = this.props;
     if (authedUser[0]) {
       return <Redirect to="/" />;
     }
 
     console.log(authedUser)
-  
+
     return (
-      <div className='wrapper'>
-        <div
-
-          className='wrapper2'>
-          <p style={{ textAlign: 'center', fontSize: 20, borderColor: '#000000', width: '100%', fontWeight: '700' }}>Welcome to the would you rather App!</p>
-        </div>
-
+      <div 
+      style={{marginTop: 50}}
+      className='wrapper'>
         <form
-      
-          className='new-question'
-          >
+        className='new-question'
+        >
           <label>
-            <p style={{ textAlign: 'center', fontSize: 30 }}>Sign In</p>
+            <p style={{ textAlign: 'center', fontSize: 30,  }}>Sign In</p>
             <select
-              style={{ width: '100%' }}
-              value={this.state.user} 
+              style={{ width: '100%', }}
+              value={this.state.user}
               onChange={this.handleChange}
-                   >
-               <option value="Login">Login</option>
+            >
+              <option value="Login" className='select'>Choose a user to login with</option>
               <option value="sarahedo">sarahedo</option>
               <option value="tylermcginnis">tylermcginnis</option>
               <option value="johndoe">johndoe</option>
@@ -63,7 +58,13 @@ class FlavorForm extends Component {
           </label>
           <input
             onClick={() => this.handleSubmit()}
-            style={{ backgroundColor: '#3CB371', color: '#ffffff', borderColor: '#b3d3ce' }}
+            style={{ backgroundColor: '#4B7BF5',
+             color: '#ffffff', borderColor: '#b3d3ce', 
+             borderRadius: 16, 
+             height: 40 ,
+             fontWeight: 300,
+             fontSize: 25,
+            }}
             type="submit" value="Submit" />
         </form>
       </div>

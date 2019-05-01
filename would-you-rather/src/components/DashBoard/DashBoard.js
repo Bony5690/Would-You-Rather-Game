@@ -30,15 +30,17 @@ const headingStyle = {
 }
 
     return (
-      <div className='container'>
-
-        <h1 style={headingStyle}>DashBoard</h1>
+      <div
+      className='container'
+       >
+        
         <Tabs
-        style={{ color: '#3cb371', fontWeight: '700' }}
+        style={{ color: '#DCDCDC', fontWeight: '700' }}
           onClick={this.toggleQuestions}
         >
           <div 
-         style={{backgroundColor: '#000000'}}
+
+         style={{backgroundColor: '#000000', textAlign: 'center'}}
           label="Unanswered Questions">
               <ul>
               {

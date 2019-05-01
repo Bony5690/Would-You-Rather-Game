@@ -32,7 +32,9 @@ class Tabs extends Component {
     } = this;
 
     return (
-      <div className="tabs">
+      <div 
+      style={{textAlign: 'center', padding: 20}}
+      className="tabs">
         <ol 
            style={this.props.style}
         className="tab-list">

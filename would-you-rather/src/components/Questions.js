@@ -16,7 +16,7 @@ class Questions extends Component {
             <Link to={`/poll/${id}`} style={{ textDecoration: "none" }}>
             <div 
             className='border'
-            style={{display: 'flex', padding: 20}}>
+            >
                 <div>
                     <img src={avatarURL}
                     style={{borderRadius: 21}}

@@ -13,27 +13,31 @@ class NavBar extends Component {
   }
   render() {
     const { authedUser } = this.props;
-    // if (!authedUser[0]) {
-    //   return <Redirect to="/login" />;
-    // }
+    
 
     return authedUser[0] ? (
       <nav
         className=' nav'>
         <ul >
           <li>
-            <NavLink to='/' exact activeClassName='active'>
+            <NavLink 
+            className='navlink'
+            to='/' exact activeClassName='active'>
               Home
           </NavLink>
           </li>
           <li>
-            <NavLink to='/add'>
+            <NavLink 
+                className='navlink'
+            to='/add'>
               New Question
           </NavLink>
           </li>
           <li>
-          <NavLink to='/leaderboard'>
-             Leaderboard
+            <NavLink 
+                className='navlink'
+            to='/leaderboard'>
+              Leaderboard
           </NavLink>
           </li>
           <li>
@@ -43,17 +47,17 @@ class NavBar extends Component {
               height="42" width="42"
               src="https://www.w3schools.com/w3images/avatar5.png" />
           </li>
-          {authedUser[0] ? authedUser : null}
           <li>
-  
-              
-           <button
+          {authedUser[0] ? authedUser : null}
+          </li>
+
+          <li>
+
+
+            <button
+            style={{borderRadius: 16, padding: 15, width: 100, backgroundColor: '#4B7BF5', fontWeight: '700', color: 'white'}}
               onClick={() => this.handleClick()}
-            >Logout</button> 
-      
-            {/* <NavLink to='/Login' activeClassName='active'>
-           Logout
-          </NavLink> */}
+            >Logout</button>
           </li>
         </ul>
       </nav>
@@ -62,58 +66,6 @@ class NavBar extends Component {
       null
   }
 }
-
-// const NavBar = (props) => {
-//   handleClick = () => {
-//     const { dispatch } = this.props;
-//     dispatch(handleRemoveAuthedUser());
-//   }
-
-//     return(
-
-//         <nav 
-//         className=' nav'>
-//       <ul >
-//         <li>
-//           <NavLink to='/' exact activeClassName='active'>
-//             Home
-//           </NavLink>
-//         </li>
-//         <li>
-//           <NavLink to='/newquestion' activeClassName='active'>
-//             New Question
-//           </NavLink>
-//         </li>
-//         <li>
-//           <NavLink to='/leaderboard' activeClassName='active'>
-//           Leader Board
-//           </NavLink>
-//         </li>
-//         <li>
-//           Hello Sarah Edo
-//         </li>
-//         <li>
-//         <img 
-//         alt='user avatar'
-//         style={{borderRadius: 30}}
-//         height="42" width="42"
-//         src="https://www.w3schools.com/w3images/avatar5.png"/>
-//         </li>
-
-//         <li>
-//           <button
-//            onClick={() => handleClick()}
-//           >Logout</button>
-//           {/* <NavLink to='/home' activeClassName='active'>
-//            Logout
-//           </NavLink> */}
-//         </li>
-//       </ul>
-//     </nav>
-
-//     )
-
-// }
 
 
 function mapStateToProps({ authedUser }) {

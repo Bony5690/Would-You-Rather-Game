@@ -30,6 +30,7 @@ class Tab extends Component {
 
     return (
       <li
+      style={{borderRadius: 16, margin: 10}}
 
         className={className}
         onClick={onClick}

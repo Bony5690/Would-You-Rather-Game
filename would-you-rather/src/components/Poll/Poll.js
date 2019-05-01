@@ -79,6 +79,12 @@ class Poll extends Component {
                         <button 
                         onClick={() => this.handleClick(question, 'optionOne')}
                         style={{backgroundColor: selectedQuestion !== 'optionOne' ? 'gray' : 'green', color: 'white', fontWeight: '700'}}>{ optionOne.text}</button>
+                        {
+                            !newQuestion ? null 
+                            : 
+                            <p>{question.optionOne.votes.length} / {votes}</p>
+                        }
+     
                     {/* <button
               type="radio"
               name="react-tips"
@@ -93,6 +99,11 @@ class Poll extends Component {
                     <button 
                         onClick={() => this.handleClick(question, 'optionTwo')}
                         style={{backgroundColor: selectedQuestion !== 'optionTwo' ? 'gray' : 'green', color: 'white', fontWeight: '700'}}>{ optionTwo.text}</button>
+                          {
+                            !newQuestion ? null 
+                            : 
+                            <p>{question.optionTwo.votes.length} / {votes}</p>
+                        }
                     {/* <input
               type="radio"
               name="react-tips"

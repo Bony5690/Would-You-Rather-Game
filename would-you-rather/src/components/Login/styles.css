@@ -1,15 +1,16 @@
+
+
 .new-question {
     width: 100%;
     max-width: 590px;
     display: flex;
     flex-direction: column;
+    text-align: center;
   }
 
-  
-
-.moveDown {
-    margin-top: 20
-}
+.select {
+  font-size: 20;
+}  
 
 .inputstyle {
 padding: 5;
@@ -17,18 +18,18 @@ color: '#D3D3D3';
 
 }
 
-
-
   .wrapper {
-    width: 100%;
+    width: '100%';
     max-width: 590px;
+    min-height: 300px;
     padding: 10px;
     margin: 0 auto;
+    padding: 20;
     border: 1px solid #dad7d7;
-    border-radius: 3px;
+    border-radius: 10px;
     cursor: pointer;
     box-shadow: 5px 5px 0.5px #888888;
-
+    text-align: center
 
   }
 
