@@ -4,3 +4,8 @@
     margin-top: 50
     
 }
+
+div.center {
+    display: flex;
+  justify-content: center;
+}

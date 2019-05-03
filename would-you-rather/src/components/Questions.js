@@ -38,6 +38,7 @@ class Questions extends Component {
               {formatDate(timestamp)}
             </div>
           </div>
+          
           <div
             style={{
               width: "100%",
