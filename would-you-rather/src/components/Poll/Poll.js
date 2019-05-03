@@ -107,12 +107,14 @@ class Poll extends Component {
               //  className='center'
               style={{ margin: 20, borderColor: "#000000", borderWidth: 1 }}
             >
+              <div style={{color: 'white', fontSize: 28, fontWeight: '700', marginBottom: 15}}> Would You Rather</div>
               <button
                 onClick={() => this.handleClick(question, "optionOne")}
                 style={{
                   backgroundColor:
                     selectedQuestion !== "optionOne" ? "gray" : "#8AA9F8",
-                  color: selectedQuestion !== "optionOne " ? "white" : "#F7B681",
+                  color:
+                    selectedQuestion !== "optionOne " ? "white" : "#F7B681",
                   fontWeight: "700",
                   borderRadius: 16,
                   padding: 10
@@ -120,13 +122,10 @@ class Poll extends Component {
               >
                 {optionOne.text}
               </button>
-              {/* {
-                            !newQuestion ? null  */}
-              {/* :  */}
+
               <p>
                 {question.optionOne.votes.length} / {votes}
               </p>
-              {/* } */}
 
               <button
                 onClick={() => this.handleClick(question, "optionTwo")}
@@ -141,13 +140,10 @@ class Poll extends Component {
               >
                 {optionTwo.text}
               </button>
-              {/* {
-                            !newQuestion ? null 
-                            :  */}
+
               <p>
                 {question.optionTwo.votes.length} / {votes}
               </p>
-              {/* } */}
             </div>
           </div>
         </div>

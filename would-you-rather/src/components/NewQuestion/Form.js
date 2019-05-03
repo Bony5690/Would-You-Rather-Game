@@ -38,22 +38,23 @@ class Form extends Component {
     }
     const inputStyle = {
       padding: 5,
-      color: '#000000'
+      color: '#000000',
+      borderRadius: 16,
       }
     return (
       <div 
-      style={{marginTop: 20}}
+      style={{marginTop: 20, backgroundColor: '#8AA9F8',}}
       className='wrapper'>
-        <h3 >Create New Question</h3>
+        <h3 style={{color: 'white'}} >Create New Question</h3>
         <div className='new-question' >
-        <div style={{padding: 10}}>
+        <div style={{padding: 10, color: 'white'}}>
           Would you rather...
         </div>
           <input 
             onChange={(e) => this.setState({optionOneText: e.target.value})}
          style={inputStyle}
           value={optionOneText} />
-          <div style={{padding: 10}}>
+          <div style={{padding: 10, color: 'white'}}>
             or
           </div>
 
@@ -63,7 +64,7 @@ class Form extends Component {
           value={optionTwoText} />
           <button
            onClick={event => this.handleSubmit(event)}
-          style={{backgroundColor: '#3CB371', color: '#ffffff', borderColor: '#3CB371'}}
+          style={{backgroundColor: '#F7B681', color: '#ffffff', borderColor: '#F7B681', borderRadius: 32, marginTop: 20, fontWeight: '700'}}
             className='btn'
             type='submit'
           >

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Board from '../Board';
+import Board from '../Board/Board';
 import { Redirect, withRouter } from "react-router-dom";
 
 function mapStateToProps({users, authedUser}) {
@@ -24,7 +24,7 @@ class LeaderBoard extends Component {
           }
 
         return (
-            <div>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
                 <Board
                 usersSorted={usersSorted}
                 />

@@ -55,7 +55,7 @@ class NavBar extends Component {
 
 
             <button
-            style={{borderRadius: 16, padding: 15, width: 100, backgroundColor: '#4B7BF5', fontWeight: '700', color: 'white'}}
+            style={{borderRadius: 16, padding: 15, width: 100, backgroundColor: '#8AA9F8', fontWeight: '700', color: 'white'}}
               onClick={() => this.handleClick()}
             >Logout</button>
           </li>
