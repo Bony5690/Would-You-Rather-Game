@@ -9,3 +9,7 @@ div.center {
     display: flex;
   justify-content: center;
 }
+
+.noFocus:focus {
+outline: none;
+}

@@ -30,8 +30,8 @@ class Questions extends Component {
             <img
               src={avatarURL}
               style={{ borderRadius: 21 }}
-              height="42"
-              width="42"
+              height="109"
+              width="74"
               alt={`Avatar of ${name}`}
             />
             <div style={{ marginTop: 20, color: "white", fontWeight: "600" }}>

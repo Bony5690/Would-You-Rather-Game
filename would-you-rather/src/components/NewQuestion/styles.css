@@ -11,9 +11,8 @@
     margin-top: 20
 }
 
-.inputstyle {
-padding: 5;
-color: '#D3D3D3',
+.inputstyle:focus {
+  outline: none;
 
 }
 
@@ -27,4 +26,7 @@ color: '#D3D3D3',
     cursor: pointer;
     box-shadow: 5px 5px 0.5px #888888;
 
+  }
+  .buttonStyle:focus{
+    outline: none;
   }

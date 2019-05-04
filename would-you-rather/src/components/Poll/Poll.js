@@ -103,16 +103,24 @@ class Poll extends Component {
               borderBottomRightRadius: 32
             }}
           >
-            <div
-              //  className='center'
-              style={{ margin: 20, borderColor: "#000000", borderWidth: 1 }}
-            >
-              <div style={{color: 'white', fontSize: 28, fontWeight: '700', marginBottom: 15}}> Would You Rather</div>
+            <div style={{ margin: 20, borderColor: "#000000", borderWidth: 1 }}>
+              <div
+                style={{
+                  color: "white",
+                  fontSize: 28,
+                  fontWeight: "700",
+                  marginBottom: 15
+                }}
+              >
+                {" "}
+                Would You Rather
+              </div>
               <button
+                className="noFocus"
                 onClick={() => this.handleClick(question, "optionOne")}
                 style={{
                   backgroundColor:
-                    selectedQuestion !== "optionOne" ? "gray" : "#8AA9F8",
+                    selectedQuestion !== "optionOne" ? "#A9A9A9" : "#8AA9F8",
                   color:
                     selectedQuestion !== "optionOne " ? "white" : "#F7B681",
                   fontWeight: "700",
@@ -123,15 +131,17 @@ class Poll extends Component {
                 {optionOne.text}
               </button>
 
-              <p>
+              <p style={{color: 'white', }}>
                 {question.optionOne.votes.length} / {votes}
               </p>
+              <p style={{color: 'white', fontWeight: '700'}}>or</p>
 
               <button
+                className="noFocus"
                 onClick={() => this.handleClick(question, "optionTwo")}
                 style={{
                   backgroundColor:
-                    selectedQuestion !== "optionTwo" ? "gray" : "#8AA9F8",
+                    selectedQuestion !== "optionTwo" ? "#A9A9A9" : "#8AA9F8",
                   color: "white",
                   fontWeight: "700",
                   borderRadius: 16,
@@ -141,7 +151,7 @@ class Poll extends Component {
                 {optionTwo.text}
               </button>
 
-              <p>
+              <p style={{color: 'white', fontWeight: '700'}}>
                 {question.optionTwo.votes.length} / {votes}
               </p>
             </div>

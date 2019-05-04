@@ -63,6 +63,7 @@ a {
 
 .active {
   font-weight: 700;
+  color: #F7B681;
 }
 
 .nav  ul {
@@ -94,7 +95,13 @@ li {
 
 }
 
-.navlink {
+.navlink:hover {
+  color:#F7B681;
+  text-decoration: none;
+}
+
+.navlinkStyle {
   color:#4B7BF5;
-  font-size: 30
+  font-size: 30;
+  text-decoration: none;
 }

@@ -19,23 +19,23 @@ class NavBar extends Component {
       <nav
         className=' nav'>
         <ul >
-          <li>
+          <li >
             <NavLink 
-            className='navlink'
+            className='navlink navlinkStyle'
             to='/' exact activeClassName='active'>
               Home
           </NavLink>
           </li>
           <li>
             <NavLink 
-                className='navlink'
+                className='navlink navlinkStyle'
             to='/add'>
               New Question
           </NavLink>
           </li>
           <li>
             <NavLink 
-                className='navlink'
+                className='navlink navlinkStyle'
             to='/leaderboard'>
               Leaderboard
           </NavLink>

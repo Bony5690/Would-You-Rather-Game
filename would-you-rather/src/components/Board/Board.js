@@ -28,6 +28,7 @@ const Board = props => {
               width="42"
               alt={`Avatar of ${user.name}`}
             />
+            <p style={{color: 'white', fontWeight: '700'}}>{user.name}</p>
           </div>
 
           <div
@@ -43,30 +44,20 @@ const Board = props => {
             className="border"
           >
             <div style={{ margin: 20, borderColor: "#000000", borderWidth: 1 }}>
-              {/* <p
-                style={{
-                //   backgroundColor: "light-gray",
-                  fontSize: 15,
-                  marginTop: -15,
-                  color: "white",
-                  fontWeight: "600"
-                }}
-              >
-          
-              </p> */}
               <div style={{margin: 5}}> 
               <p style={{ color: "white", fontWeight: "600" }}>
               {user.name} Asked   </p>
               <p style={{ color: "white", fontWeight: "600" }}>
-                {user.questions.length}
+                {user.questions.length} questions
               </p>
               <p style={{ color: "white", fontWeight: "600" }}>
                 {user.name} Answered
-                {Object.keys(user.answers).length}
               </p>
+              <p style={{ color: "white", fontWeight: "600" }}>  
+              {Object.keys(user.answers).length} questions</p>
               </div>
             </div>
-          </div>
+          </div> 
         </div>
       ))}
     </div>
