@@ -48,7 +48,6 @@ class Poll extends Component {
     const sum = votes;
     const percentOfVotes1 = (votes1 / sum) * 100;
     const percentOfVotes2 = (votes2 / sum) * 100;
-    console.log(selectedQuestion);
 
     const wrapper = {
       display: "flex",
