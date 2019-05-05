@@ -13,17 +13,17 @@ class Questions extends Component {
     console.log("questions", this.props);
 
     return (
-      <Link to={`/poll/${id}`} style={{ textDecoration: "none" }}>
+      <Link to={`/questions/${id}`} style={{ textDecoration: "none" }}>
         <div
           className="border"
           style={{
             borderRadius: 32,
-          width: 500,
+            width: 500,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             textAlign: "center",
-            backgroundColor: "#8AA9F8",
+            backgroundColor: "#8AA9F8"
           }}
         >
           <div>
@@ -38,7 +38,7 @@ class Questions extends Component {
               {formatDate(timestamp)}
             </div>
           </div>
-          
+
           <div
             style={{
               width: "100%",
@@ -51,7 +51,7 @@ class Questions extends Component {
             }}
             className="border"
           >
-            <div style={{ margin: 20, borderColor: "#000000", borderWidth: 1,  }}>
+            <div style={{ margin: 20, borderColor: "#000000", borderWidth: 1 }}>
               <p
                 style={{
                   backgroundColor: "light-gray",

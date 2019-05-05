@@ -8,8 +8,6 @@ import { formatDate } from "../../utils/helper";
 class Poll extends Component {
   handleClick = (question, answer) => {
     const { dispatch } = this.props;
-    console.log("Question: ", question);
-    // console.log("Question: ", answer);
     dispatch(handleSaveQuestionAnswer(question, answer));
   };
 
@@ -51,34 +49,43 @@ class Poll extends Component {
     const percentOfVotes1 = (votes1 / sum) * 100;
     const percentOfVotes2 = (votes2 / sum) * 100;
     console.log(selectedQuestion);
+
+    const wrapper = {
+      display: "flex",
+      justifyContent: "center",
+      alignContent: "center"
+    };
+
+    const borderWrapper = {
+      borderRadius: 32,
+      maxWidth: 600,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      textAlign: "center",
+      backgroundColor: "#8AA9F8"
+    };
+    const imageStyle = {
+      borderRadius: 21,
+      heigt: 109,
+      width: 74
+    };
+
+    const questionWrapper = {
+      display: "flex",
+      justifyContent: "center",
+      backgroundColor: "#F7B681",
+      alignContent: "center",
+      width: "100%",
+      borderTopRightRadius: 32,
+      borderBottomRightRadius: 32
+    };
+
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignContent: "center"
-        }}
-      >
-        <div
-          className="border"
-          style={{
-            borderRadius: 32,
-            maxWidth: 600,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            backgroundColor: "#8AA9F8"
-          }}
-        >
+      <div style={wrapper}>
+        <div className="border" style={borderWrapper}>
           <div>
-            <img
-              src={avatarURL}
-              style={{ borderRadius: 21 }}
-              height="109"
-              width="74"
-              alt={`Avatar of ${name}`}
-            />
+            <img src={avatarURL} style={imageStyle} alt={`Avatar of ${name}`} />
             <p style={{ color: "white", fontWeight: "600", padding: 10 }}>
               {name}
             </p>
@@ -87,17 +94,7 @@ class Poll extends Component {
             </div>
           </div>
 
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              backgroundColor: "#F7B681",
-              alignContent: "center",
-              width: "100%",
-              borderTopRightRadius: 32,
-              borderBottomRightRadius: 32
-            }}
-          >
+          <div style={questionWrapper}>
             <div
               style={{
                 margin: 20,
@@ -136,6 +133,9 @@ class Poll extends Component {
                     {optionOne.text}
                   </button>
                 </div>
+                <div style={{color: 'white', fontSize: 22, fontWeight: "700"}}>
+                  or
+                </div>
                 <div style={{ marginTop: 40 }}>
                   <button
                     className="noFocus"
@@ -158,21 +158,21 @@ class Poll extends Component {
 
               <div style={{ marginTop: 15 }}>
                 <div style={{ paddingLeft: 18 }}>
-                  <p style={{ color: "white", fontSize: 20 }}>
-                    { percentOfVotes1 ?  percentOfVotes1.toFixed(2) : '0'}%
+                  <p style={{ color: "white", fontSize: 20, fontWeight: "700" }}>
+                    {percentOfVotes1 ? percentOfVotes1.toFixed(2) : "0"}%
                   </p>
                   <p style={{ color: "white", fontWeight: "700" }}>
                     {question.optionOne.votes.length} of {votes}
                   </p>
-                  <p style={{ color: "white", fontSize: 20 }}>Votes</p>
+                  <p style={{ color: "white", fontSize: 20, fontWeight: "700" }}>Votes</p>
                 </div>
-                <p style={{ color: "white", fontSize: 20, paddingLeft: 20 }}>
-                  {percentOfVotes2 ?  percentOfVotes2.toFixed(2) : '0'}%
+                <p style={{ color: "white", fontSize: 20, paddingLeft: 20, fontWeight: "700" }}>
+                  {percentOfVotes2 ? percentOfVotes2.toFixed(2) : "0"}%
                 </p>
                 <p style={{ color: "white", fontWeight: "700" }}>
                   {question.optionTwo.votes.length} of {votes}
                 </p>
-                <p style={{ color: "white", fontSize: 20 }}>Votes</p>
+                <p style={{ color: "white", fontSize: 20, fontWeight: "700" }}>Votes</p>
               </div>
             </div>
           </div>
