@@ -24,8 +24,8 @@ const Board = props => {
             <img
               src={user.avatarURL}
               style={{ borderRadius: 21 }}
-              height="42"
-              width="42"
+              height="109"
+              width="74"
               alt={`Avatar of ${user.name}`}
             />
             <p style={{color: 'white', fontWeight: '700'}}>{user.name}</p>
@@ -34,6 +34,7 @@ const Board = props => {
           <div
             style={{
               width: "100%",
+              height: '100%',
               borderTopRightRadius: 32,
               borderBottomRightRadius: 32,
               display: "flex",

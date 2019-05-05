@@ -49,12 +49,6 @@ class Poll extends Component {
       ? "optionTwo"
       : false;
 
-    const newQuestion = question.optionOne.votes.includes(authedUser)
-      ? true
-      : question.optionTwo.votes.includes(authedUser)
-      ? true
-      : false;
-
     const votes =
       question.optionOne.votes.length + question.optionTwo.votes.length;
     console.log(selectedQuestion);
@@ -82,11 +76,13 @@ class Poll extends Component {
             <img
               src={avatarURL}
               style={{ borderRadius: 21 }}
-              height="42"
-              width="42"
+              height="109"
+              width="74"
               alt={`Avatar of ${name}`}
             />
-            <p style={{ color: "white", fontWeight: "600" }}>{name}</p>
+            <p style={{ color: "white", fontWeight: "600", padding: 10 }}>
+              {name}
+            </p>
             <div style={{ marginTop: 20, color: "white", fontWeight: "600" }}>
               {formatDate(timestamp)}
             </div>
@@ -112,7 +108,6 @@ class Poll extends Component {
                   marginBottom: 15
                 }}
               >
-                {" "}
                 Would You Rather
               </div>
               <button
@@ -131,10 +126,10 @@ class Poll extends Component {
                 {optionOne.text}
               </button>
 
-              <p style={{color: 'white', }}>
+              <p style={{ color: "white" }}>
                 {question.optionOne.votes.length} / {votes}
               </p>
-              <p style={{color: 'white', fontWeight: '700'}}>or</p>
+              <p style={{ color: "white", fontWeight: "700" }}>or</p>
 
               <button
                 className="noFocus"
@@ -151,7 +146,7 @@ class Poll extends Component {
                 {optionTwo.text}
               </button>
 
-              <p style={{color: 'white', fontWeight: '700'}}>
+              <p style={{ color: "white", fontWeight: "700" }}>
                 {question.optionTwo.votes.length} / {votes}
               </p>
             </div>

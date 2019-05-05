@@ -105,3 +105,6 @@ li {
   font-size: 30;
   text-decoration: none;
 }
+.buttonStyle:focus{
+  outline: none;
+}

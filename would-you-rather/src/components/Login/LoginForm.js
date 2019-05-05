@@ -58,8 +58,8 @@ class FlavorForm extends Component {
           </label>
           <input
             onClick={() => this.handleSubmit()}
-            style={{ backgroundColor: '#4B7BF5',
-             color: '#ffffff', borderColor: '#b3d3ce', 
+            style={{ backgroundColor: '#8AA9F8',
+             color: '#ffffff', borderColor: '#8AA9F8', 
              borderRadius: 16, 
              height: 40 ,
              fontWeight: 300,

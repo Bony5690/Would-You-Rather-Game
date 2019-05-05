@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter, Redirect } from "react-router-dom";
-import "./styles.css"
+import "./styles.css";
 
 import { handleSaveQuestion } from "../../actions/questions";
 
@@ -9,7 +9,7 @@ class Form extends Component {
   state = {
     optionOneText: "",
     optionTwoText: "",
-    showMessage: false,
+    showMessage: false
   };
 
   generateUID() {
@@ -24,15 +24,13 @@ class Form extends Component {
   }
 
   handleSubmit = () => {
-    // const id = this.generateUID();
     const { dispatch } = this.props;
     const { optionOneText, optionTwoText } = this.state;
-    if(optionOneText && optionTwoText) {
-
+    if (optionOneText && optionTwoText) {
       dispatch(handleSaveQuestion({ optionOneText, optionTwoText }));
+    } else {
+      this.setState({ showMessage: true });
     }
-    this.setState({showMessage: true})
-
   };
 
   render() {
@@ -69,6 +67,7 @@ class Form extends Component {
             value={optionTwoText}
           />
           <button
+            className='buttonStyle'
             onClick={event => this.handleSubmit(event)}
             style={{
               backgroundColor: "#F7B681",
@@ -83,13 +82,18 @@ class Form extends Component {
             Submit
           </button>
         </div>
-        {
-          showMessage ? 
-          <p style={{fontSize: 18, color: 'white', fontWeight: '700', marginTop: 10}}>Complete all fields before submitting a question!</p>
-          :
-          null
-        }
-      
+        {showMessage ? (
+          <p
+            style={{
+              fontSize: 18,
+              color: "white",
+              fontWeight: "700",
+              marginTop: 10
+            }}
+          >
+            Complete all fields before submitting a question!
+          </p>
+        ) : null}
       </div>
     );
   }
