@@ -132,7 +132,9 @@ class Poll extends Component {
                     {optionOne.text}
                   </button>
                 </div>
-                <div style={{color: 'white', fontSize: 22, fontWeight: "700"}}>
+                <div
+                  style={{ color: "white", fontSize: 22, fontWeight: "700" }}
+                >
                   or
                 </div>
                 <div style={{ marginTop: 40 }}>
@@ -157,21 +159,36 @@ class Poll extends Component {
 
               <div style={{ marginTop: 15 }}>
                 <div style={{ paddingLeft: 18 }}>
-                  <p style={{ color: "white", fontSize: 20, fontWeight: "700" }}>
+                  <p
+                    style={{ color: "white", fontSize: 20, fontWeight: "700" }}
+                  >
                     {percentOfVotes1 ? percentOfVotes1.toFixed(2) : "0"}%
                   </p>
                   <p style={{ color: "white", fontWeight: "700" }}>
                     {question.optionOne.votes.length} of {votes}
                   </p>
-                  <p style={{ color: "white", fontSize: 20, fontWeight: "700" }}>Votes</p>
+                  <p
+                    style={{ color: "white", fontSize: 20, fontWeight: "700" }}
+                  >
+                    Votes
+                  </p>
                 </div>
-                <p style={{ color: "white", fontSize: 20, paddingLeft: 20, fontWeight: "700" }}>
+                <p
+                  style={{
+                    color: "white",
+                    fontSize: 20,
+                    paddingLeft: 20,
+                    fontWeight: "700"
+                  }}
+                >
                   {percentOfVotes2 ? percentOfVotes2.toFixed(2) : "0"}%
                 </p>
                 <p style={{ color: "white", fontWeight: "700" }}>
                   {question.optionTwo.votes.length} of {votes}
                 </p>
-                <p style={{ color: "white", fontSize: 20, fontWeight: "700" }}>Votes</p>
+                <p style={{ color: "white", fontSize: 20, fontWeight: "700" }}>
+                  Votes
+                </p>
               </div>
             </div>
           </div>
