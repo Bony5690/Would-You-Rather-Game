@@ -5,59 +5,7 @@ import "../Tab/styles.css";
 import { connect } from "react-redux";
 import Questions from "../Questions";
 
-class DashBoard extends Component {
-  state = {
-    unanswered: true
-  };
 
-  render() {
-    const {
-      answeredIds,
-      questionIds,
-      authedUser,
-      activeUsersAnswers
-    } = this.props;
-    const unansweredIds = questionIds.filter(f =>
-      answeredIds ? !answeredIds.includes(f) : null
-    );
-
-    console.log("leaderboard", activeUsersAnswers);
-    if (!authedUser[0]) {
-      return <Redirect to="/login" />;
-    }
-
-    return (
-      <div className="container">
-        <Tabs
-          style={{ color: "#DCDCDC", fontWeight: "700" }}
-          onClick={this.toggleQuestions}
-        >
-          <div
-            style={{ backgroundColor: "#000000", textAlign: 'center' }}
-            label="Unanswered Questions"
-          >
-            <ul>
-              {unansweredIds.map((id, i) => (
-                <li key={i}>
-                  <Questions id={id} />
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div label="Answered Questions">
-            <ul>
-              {answeredIds.map((id, i) => (
-                <li key={i}>
-                  <Questions id={id} />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Tabs>
-      </div>
-    );
-  }
-}
 
 function mapStateToProps({ users, questions, authedUser }) {
   const activeUsersAnswers = users[authedUser] && users[authedUser].answers;
@@ -76,5 +24,64 @@ function mapStateToProps({ users, questions, authedUser }) {
     )
   };
 }
+
+class DashBoard extends Component {
+  state = {
+    unanswered: true
+  };
+
+  render() {
+    const {
+      answeredIds,
+      questionIds,
+      authedUser,
+      activeUsersAnswers
+    } = this.props;
+    const unansweredIds = questionIds.filter(f =>
+      answeredIds ? !answeredIds.includes(f) : null
+    );
+
+    const answered = questionIds.filter(f =>
+      answeredIds ? answeredIds.includes(f) : null
+    );
+
+    console.log("leaderboard", activeUsersAnswers);
+    if (!authedUser[0]) {
+      return <Redirect to="/login" />;
+    }
+
+    return (
+      <div className="container">
+        <Tabs
+          style={{ color: "#DCDCDC", fontWeight: "700" }}
+          onClick={this.toggleQuestions}
+        >
+          <div
+            style={{ backgroundColor: "#000000", textAlign: "center" }}
+            label="Unanswered Questions"
+          >
+            <ul>
+              {unansweredIds.map((id, i) => (
+                <li key={i}>
+                  <Questions id={id} />
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div label="Answered Questions">
+            <ul>
+              {answered.map((id, i) => (
+                <li key={i}>
+                  <Questions id={id} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Tabs>
+      </div>
+    );
+  }
+}
+
 
 export default connect(mapStateToProps)(DashBoard);

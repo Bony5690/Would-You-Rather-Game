@@ -6,13 +6,6 @@ import { Redirect, withRouter } from "react-router-dom";
 import { formatDate } from "../../utils/helper";
 
 class Poll extends Component {
-  // constructor(props){
-  //     super(props)
-  //     this.state = {
-  //         selectedQuestion: 'optionOne'
-  //     }
-  // }
-
   handleClick = (question, answer) => {
     const { dispatch } = this.props;
     console.log("Question: ", question);
@@ -51,6 +44,12 @@ class Poll extends Component {
 
     const votes =
       question.optionOne.votes.length + question.optionTwo.votes.length;
+
+    const votes1 = question.optionOne.votes.length;
+    const votes2 = question.optionTwo.votes.length;
+    const sum = votes;
+    const percentOfVotes1 = (votes1 / sum) * 100;
+    const percentOfVotes2 = (votes2 / sum) * 100;
     console.log(selectedQuestion);
     return (
       <div
@@ -64,7 +63,7 @@ class Poll extends Component {
           className="border"
           style={{
             borderRadius: 32,
-            width: 500,
+            maxWidth: 600,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -99,56 +98,82 @@ class Poll extends Component {
               borderBottomRightRadius: 32
             }}
           >
-            <div style={{ margin: 20, borderColor: "#000000", borderWidth: 1 }}>
-              <div
-                style={{
-                  color: "white",
-                  fontSize: 28,
-                  fontWeight: "700",
-                  marginBottom: 15
-                }}
-              >
-                Would You Rather
+            <div
+              style={{
+                margin: 20,
+                borderColor: "#000000",
+                borderWidth: 1,
+                display: "flex"
+              }}
+            >
+              <div>
+                <div style={{ margin: 15 }}>
+                  <p
+                    style={{
+                      color: "white",
+                      fontSize: 18,
+                      fontWeight: "700",
+                      marginBottom: 26
+                    }}
+                  >
+                    Would You Rather
+                  </p>
+                  <button
+                    className="noFocus"
+                    onClick={() => this.handleClick(question, "optionOne")}
+                    style={{
+                      backgroundColor:
+                        selectedQuestion !== "optionOne"
+                          ? "#A9A9A9"
+                          : "#8AA9F8",
+                      color:
+                        selectedQuestion !== "optionOne " ? "white" : "#F7B681",
+                      fontWeight: "700",
+                      borderRadius: 16,
+                      padding: 10
+                    }}
+                  >
+                    {optionOne.text}
+                  </button>
+                </div>
+                <div style={{ marginTop: 40 }}>
+                  <button
+                    className="noFocus"
+                    onClick={() => this.handleClick(question, "optionTwo")}
+                    style={{
+                      backgroundColor:
+                        selectedQuestion !== "optionTwo"
+                          ? "#A9A9A9"
+                          : "#8AA9F8",
+                      color: "white",
+                      fontWeight: "700",
+                      borderRadius: 16,
+                      padding: 10
+                    }}
+                  >
+                    {optionTwo.text}
+                  </button>
+                </div>
               </div>
-              <button
-                className="noFocus"
-                onClick={() => this.handleClick(question, "optionOne")}
-                style={{
-                  backgroundColor:
-                    selectedQuestion !== "optionOne" ? "#A9A9A9" : "#8AA9F8",
-                  color:
-                    selectedQuestion !== "optionOne " ? "white" : "#F7B681",
-                  fontWeight: "700",
-                  borderRadius: 16,
-                  padding: 10
-                }}
-              >
-                {optionOne.text}
-              </button>
 
-              <p style={{ color: "white" }}>
-                {question.optionOne.votes.length} / {votes}
-              </p>
-              <p style={{ color: "white", fontWeight: "700" }}>or</p>
-
-              <button
-                className="noFocus"
-                onClick={() => this.handleClick(question, "optionTwo")}
-                style={{
-                  backgroundColor:
-                    selectedQuestion !== "optionTwo" ? "#A9A9A9" : "#8AA9F8",
-                  color: "white",
-                  fontWeight: "700",
-                  borderRadius: 16,
-                  padding: 10
-                }}
-              >
-                {optionTwo.text}
-              </button>
-
-              <p style={{ color: "white", fontWeight: "700" }}>
-                {question.optionTwo.votes.length} / {votes}
-              </p>
+              <div style={{ marginTop: 15 }}>
+                <div style={{ paddingLeft: 18 }}>
+                  <p style={{ color: "white", fontSize: 20 }}>
+                    { percentOfVotes1 ?  percentOfVotes1.toFixed(2) : '0'}%
+                  </p>
+                  <p style={{ color: "white", fontWeight: "700" }}>
+                    {question.optionOne.votes.length} of {votes}
+                  </p>
+                  <p style={{ color: "white", fontSize: 20 }}>Votes</p>
+                </div>
+                <p style={{ color: "white", fontSize: 20, paddingLeft: 20 }}>
+                  {percentOfVotes2 ?  percentOfVotes2.toFixed(2) : '0'}%
+                </p>
+                <p style={{ color: "white", fontWeight: "700" }}>
+                  {question.optionTwo.votes.length} of {votes}
+                </p>
+                <p style={{ color: "white", fontSize: 20 }}>Votes</p>
+              </div>
             </div>
           </div>
         </div>

@@ -18,7 +18,7 @@ class Questions extends Component {
           className="border"
           style={{
             borderRadius: 32,
-            width: 500,
+          width: 500,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
