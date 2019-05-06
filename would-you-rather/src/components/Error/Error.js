@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect, withRouter } from "react-router-dom";
+import { Redirect} from "react-router-dom";
 class Error extends Component {
   state = {
     redirect: false
@@ -8,14 +8,16 @@ class Error extends Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/Login" />;
+      return <Redirect to="/" />;
     }
     return (
-      <div style={{ textAlign: "center" }}>
-        <p style={{ fontSize: 30 }}>Error 404</p>
-        <p>There is no question with this id</p>
-        <button onClick={() => this.setState({ redirect: true })}>
-          Click here to be redirected
+      <div style={{ textAlign: "center", marginTop: 25 }}>
+        <p style={{ fontSize: 90, color: '#8AA9F8' }}>Error 404</p>
+        <p  style={{ fontSize: 50, color: '#8AA9F8' }}>There is no question with this id</p>
+        <button 
+        style={{borderRadius: 16, padding: 10, color: 'white', borderColor: '#8AA9F8', backgroundColor: '#8AA9F8', fontWeight: '700'}}
+        onClick={() => this.setState({ redirect: true })}>
+       CLICK HERE TO BE REDIRECTED
         </button>
       </div>
     );
@@ -29,4 +31,4 @@ function mapStateToProps({ users, authedUser }) {
   };
 }
 
-export default withRouter(connect(mapStateToProps)(Error));
+export default connect(mapStateToProps)(Error);

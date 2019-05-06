@@ -5,8 +5,6 @@ import "../Tab/styles.css";
 import { connect } from "react-redux";
 import Questions from "../Questions";
 
-
-
 function mapStateToProps({ users, questions, authedUser }) {
   const activeUsersAnswers = users[authedUser] && users[authedUser].answers;
   const allIds = Object.keys(questions);
@@ -26,9 +24,7 @@ function mapStateToProps({ users, questions, authedUser }) {
 }
 
 class DashBoard extends Component {
-  state = {
-    unanswered: true
-  };
+ 
 
   render() {
     const {
@@ -47,7 +43,14 @@ class DashBoard extends Component {
 
     console.log("leaderboard", activeUsersAnswers);
     if (!authedUser[0]) {
-      return <Redirect to="/login" />;
+      return (
+        <Redirect
+          to={{
+            pathname: "/login",
+            state: { from: this.props.location }
+          }}
+        />
+      );
     }
 
     return (
@@ -82,6 +85,5 @@ class DashBoard extends Component {
     );
   }
 }
-
 
 export default connect(mapStateToProps)(DashBoard);

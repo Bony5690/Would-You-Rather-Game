@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./styles.css";
 import { handleSaveQuestionAnswer } from "../../actions/questions";
-import { Redirect, withRouter } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { formatDate } from "../../utils/helper";
 
 class Poll extends Component {
@@ -21,13 +21,13 @@ class Poll extends Component {
     console.log("Polling", this.props);
 
     const { questions, users, authedUser, id } = this.props;
+    if (questions[id] === undefined) {
+      return <Redirect to="/404" />;
+    }
     if (!authedUser[0]) {
       return <Redirect to="/login" />;
     }
 
-    if (questions[id] === undefined) {
-      return <Redirect to="/404" />;
-    }
     const question = questions && questions[id];
     const user = users && users[question.author];
 
@@ -209,4 +209,4 @@ function mapStateToProps({ users, questions, authedUser }, props) {
   };
 }
 
-export default withRouter(connect(mapStateToProps)(Poll));
+export default connect(mapStateToProps)(Poll);

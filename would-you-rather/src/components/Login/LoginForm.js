@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect, withRouter } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { handleAuthedUser } from "../../actions/authedUser";
 import "./styles.css";
 
@@ -15,13 +15,15 @@ function mapStateToProps({ users, authedUser }) {
 
 class FlavorForm extends Component {
   state = {
-    user: ""
+    user: "",
+    toHome: false
   };
 
   handleSubmit = () => {
     const { dispatch } = this.props;
     const { user } = this.state;
     dispatch(handleAuthedUser(user));
+    this.setState({ toHome: true })
   };
 
   handleChange = event => {
@@ -29,9 +31,10 @@ class FlavorForm extends Component {
   };
 
   render() {
-    const { authedUser } = this.props;
-    if (authedUser[0]) {
-      return <Redirect to="/" />;
+    const { from } = this.props.location.state || { from: { pathname: '/' } }
+ 
+    if (this.state.toHome) {
+      return <Redirect to={from} />;
     }
 
     const inputStyle = {
@@ -76,4 +79,4 @@ class FlavorForm extends Component {
 
 
 
-export default withRouter(connect(mapStateToProps)(FlavorForm));
+export default connect(mapStateToProps)(FlavorForm);

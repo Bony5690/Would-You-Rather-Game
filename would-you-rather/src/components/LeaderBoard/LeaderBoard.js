@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Board from "../Board/Board";
-import { Redirect, withRouter } from "react-router-dom";
+import { Redirect ,  withRouter} from "react-router-dom";
 
 function mapStateToProps({ users, authedUser }) {
   const usersSorted = Object.values(users).sort(
@@ -20,7 +20,10 @@ class LeaderBoard extends Component {
   render() {
     const { usersSorted, authedUser } = this.props;
     if (!authedUser[0]) {
-      return <Redirect to="/Login" />;
+      return <Redirect to={{
+        pathname: '/login',
+        state: { from: this.props.location }
+      }} />;
     }
 
     return (
@@ -30,5 +33,6 @@ class LeaderBoard extends Component {
     );
   }
 }
+
 
 export default withRouter(connect(mapStateToProps)(LeaderBoard));

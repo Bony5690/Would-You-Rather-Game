@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router";
-import { ConnectedRouter } from "connected-react-router";
 import Form from "./components/NewQuestion/Form";
 import NavBar from "./components/NavBar";
 import Poll from "./components/Poll/Poll";
 import Error from "./components/Error/Error";
+import { ConnectedRouter } from "connected-react-router";
 import LoginForm from "./components/Login/LoginForm";
 import "./App.css";
 import DashBoard from "./components/DashBoard/DashBoard";
@@ -28,10 +28,10 @@ class App extends Component {
         <div>
           <Switch>
             <Route path="/" exact component={DashBoard} />
+            <Route path="/add" component={Form} />
             <Route path="/leaderboard" exact component={LeaderBoard} />
             <Route path="/login" component={LoginForm} />
             <Route path="/questions/:id" component={Poll} />
-            <Route path="/add" component={Form} />
             <Route path="/404" component={Error} />
           </Switch>
         </div>

@@ -16,6 +16,20 @@ class Tabs extends Component {
     };
   }
 
+
+  // static getDerivedStateFromProps(props, state) {
+  //   // Any time the current user changes,
+  //   // Reset any parts of state that are tied to that user.
+  //   // In this simple example, that's just the email.
+  //   if (props.children[0].props.label !== state.activeTab) {
+  //     return {
+  //      activeTab: props.children[0].props.label,
+       
+  //     };
+  //   }
+  //   return null;
+  // }
+
   onClickTabItem = (tab) => {
     this.setState({ activeTab: tab });
   }

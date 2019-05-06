@@ -37,7 +37,10 @@ class Form extends Component {
     const { authedUser } = this.props;
     const { optionOneText, optionTwoText, showMessage } = this.state;
     if (!authedUser[0]) {
-      return <Redirect to="/Login" />;
+      return <Redirect to={{
+        pathname: '/login',
+        state: { from: this.props.location }
+      }} />;
     }
     const inputStyle = {
       padding: 5,

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./styles.css";
 import { connect } from "react-redux";
-import { withRouter, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { handleRemoveAuthedUser } from "../actions/authedUser";
 
 class NavBar extends Component {
@@ -85,4 +85,4 @@ function mapStateToProps({ authedUser }) {
   };
 }
 
-export default withRouter(connect(mapStateToProps)(NavBar));
+export default connect(mapStateToProps)(NavBar);
