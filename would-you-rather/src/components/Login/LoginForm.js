@@ -37,6 +37,10 @@ class FlavorForm extends Component {
       return <Redirect to={from} />;
     }
 
+    // if (this.state.toHome) {
+    //   return <Redirect to={} />;
+    // }
+
     const inputStyle = {
       backgroundColor: "#8AA9F8",
       color: "#ffffff",

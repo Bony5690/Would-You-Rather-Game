@@ -21,11 +21,18 @@ class Poll extends Component {
     console.log("Polling", this.props);
 
     const { questions, users, authedUser, id } = this.props;
-    if (questions[id] === undefined) {
-      return <Redirect to="/404" />;
-    }
+
     if (!authedUser[0]) {
-      return <Redirect to="/login" />;
+      return (
+        <Redirect
+          to={{
+            pathname: "/login",
+            state: { from: this.props.location }
+          }}
+        />
+      );
+    } else if (questions[id] === undefined) {
+      return <Redirect to={"/404"} />;
     }
 
     const question = questions && questions[id];
